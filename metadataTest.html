@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+      <head>
+		   <style type="text/css">
+		        
+		   </style>
+	  </head>
+      <body>
+	       <!-- metadata插件使用方法 -->
+		    <li id="Li1" class='someclass {"item_id": 1, "item_label": "Label"}'>Item 1</li>
+			<li id="Li2" metadata='{"item_id": 1, "item_label": "Label"}'>Item 2</li>
+			<li id="Li3">
+				<metadata style="display: none;">{"item_id": 1, "item_label": "Label"}</metadata>
+				Item 3 
+			</li>
+			<li id="Li4">
+				<script type="metadata">{"item_id": 1, "item_label": "Label"}</script>
+				Item 4 
+			</li>
+		    
+            <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+			<script type="text/javascript" src="jquery.metadata.js"></script>
+			<script type="text/javascript">
+			      $(function(){
+				       console.log($("#Li1").metadata().item_id);
+					   console.log($(".someclass").metadata().item_id);
+					   console.log($("#Li1").metadata({type:'class'}).item_id);
+					   console.log($("#Li2").metadata({type:'attr'}).item_label);
+					   console.log($("#Li2").metadata({type:'attr', name:'metadata'}).item_label);
+					   console.log($("#Li3").metadata({type:'elem'}).item_label);
+					   console.log($("#Li3").metadata({type:'elem', name:'metadata'}).item_label);
+					   console.log($("#Li4").metadata({type:'elem', name:'script'}).item_label);
+				  });
+			</script>
+	  </body>  
+</html>

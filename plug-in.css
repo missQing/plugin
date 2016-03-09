@@ -1,0 +1,126 @@
+.clearfix:after{
+    content: " ";
+	display: block;
+    clear: both;
+	height: 0;
+}
+.clearfix{
+    zoom: 1;
+}
+a{
+    text-decoration:none;
+	color: #444;
+}
+/* tableUI css */
+tr.evenRow{
+    background: #fff;
+}
+tr.oddRow{
+    background: #dedede;
+}
+tr.activeRow{
+    background: red;
+}
+
+/* message css */
+.message{
+    position:fixed;
+    width: 300px;
+	border-radius: 6px;
+	background: #fff;
+	z-index:1000;
+	font-size: 14px;
+}
+.msg-tip{
+    background: #fcfdfd;
+	height: 35px;
+	line-height: 35px;
+	border-radius: 6px;
+}
+.tip-title{
+    float:left;
+	padding-left: 10px;
+}
+.tip-close{
+   float:right;
+   padding-right:10px;
+   cursor: pointer;
+}
+.msg-content{
+   text-align:center;
+   padding:20px;
+   font-size: 20px;
+}
+.msg-table{
+   display:table;
+   table-layout: fixed;
+   width:100%;
+   border-top: 1px solid #dedede;
+}
+.msg-tr{
+   display:table-row;
+}
+.msg-td{
+   display:table-cell;
+   text-align:center;
+}
+.msg-td a{
+   display: block;
+   padding: 17px 0;
+   border-right: 1px solid #dedede;
+}
+.msg-td a.nb{
+   border-right: none;
+}
+.msg-mask{
+   position:fixed;
+   left:0;
+   top:0;
+   background: #000;
+   filter: alpha(opacity=40);
+   opacity: 0.4;
+   width:100%;
+   height:100%;
+   z-index:100;
+}
+
+/* dialog css */
+.dialog{
+    position:fixed;
+	width: 500px;
+	border-radius: 6px;
+	background: #fff;
+	z-index:1000;
+	font-size: 14px;
+}
+.dlg-tip{
+    background: #fcfdfd;
+	height: 35px;
+	line-height: 35px;
+	border-radius: 6px;
+}
+.dlg-tip-title{
+    float:left;
+	padding-left: 10px;
+}
+.dlg-tip-close{
+   float:right;
+   padding-right:10px;
+   cursor: pointer;
+}
+.dlg-content{
+   text-align:left;
+   padding:20px;
+   font-size: 20px;
+}
+.dlg-mask{
+   position:fixed;
+   left:0;
+   top:0;
+   background: #000;
+   filter: alpha(opacity=40);
+   opacity: 0.4;
+   width:100%;
+   height:100%;
+   z-index:100;
+}

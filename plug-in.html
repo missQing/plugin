@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+      <head>
+	       <link rel="stylesheet" href="plug-in.css" />
+		   <style type="text/css">
+		        *{
+				   margin:0;
+				   padding:0;
+				 }
+				table {
+					border-collapse: collapse;
+					border-spacing: 0;
+					border: 1px solid #ddd;
+				}
+				table td{
+				    border: 1px solid #ddd;
+					padding: 10px 40px;
+				}
+				tr.bg-odd{
+				    background:#999;
+				}
+                .btns{
+				    margin-top: 20px;
+					text-align:center;
+				}
+				.btn{
+				    height: 24px;
+					line-height: 24px;
+					border-radius: 3px;
+					display: inline-block;
+					margin-right: 10px;
+					padding: 5px 10px;
+				}
+				.submit{
+				    background: #f00;
+					color: #fff;
+				}
+				.cancel{
+				    background: #f2f2f2;
+				    color: #666;
+				}
+		   </style>
+	  </head>
+      <body>
+	       <!-- 测试tableUI -->
+	       <table>
+		        <tbody>
+				     <tr>
+					      <td>aa</td>
+						  <td>bb</td>
+						  <td>cc</td>
+					 </tr>
+					 <tr>
+					      <td>aa</td>
+						  <td>bb</td>
+						  <td>cc</td>
+					 </tr>
+					 <tr>
+					      <td>aa</td>
+						  <td>bb</td>
+						  <td>cc</td>
+					 </tr>
+					  <tr>
+					      <td>aa</td>
+						  <td>bb</td>
+						  <td>cc</td>
+					 </tr>
+					 <tr>
+					      <td>aa</td>
+						  <td>bb</td>
+						  <td>cc</td>
+					 </tr>
+					  <tr>
+					      <td>aa</td>
+						  <td>bb</td>
+						  <td>cc</td>
+					 </tr>
+					 <tr>
+					      <td>aa</td>
+						  <td>bb</td>
+						  <td>cc</td>
+					 </tr>
+					 <tr>
+					      <td>aa</td>
+						  <td>bb</td>
+						  <td>cc</td>
+					 </tr>
+				</tbody>
+		   </table>
+
+		   <!-- 测试hilight -->
+		   <div class="hiltest">    
+			    Have a nice day!    
+		   </div>
+		   <div class="hiltest">    
+			    Have a nice day!    
+		   </div>
+		   <div class="hiltest">    
+			    Have a nice day!    
+		   </div>
+		   <div class="hiltest">    
+			    Have a nice day!    
+		   </div>
+
+		   <!-- 测试支持metadata插件的hilight -->
+            <div class="hilight { background: 'red', foreground: 'white' }">    
+			  Have a nice day!    
+			</div>    
+			<div class="hilight { foreground: 'orange' }">    
+			  Have a nice day!    
+			</div>    
+			<div class="hilight { background: 'green' }">    
+			  Have a nice day!    
+			</div>  
+           <div style="margin-top:20px;"></div>
+
+           <!-- 测试dialog插件 -->
+		   <div class="dialog"></div>
+
+		   <div class="beaufity">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+		   
+		   <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+           <script type="text/javascript" src="jquery.metadata.js"></script>
+		   <script type="text/javascript" src="plug-in.min.js"></script>
+		   <script type="text/javascript">
+		         /* tableUI插件 */
+		         $("table").tableUI().css("color","green");
+
+                 /* 暴露在外的format函数可以进行扩展 */
+                 $.fn.hilight.format = function(txt){
+				     return "<i>" + txt + "</i>";
+				 };
+				 $(".hiltest").hilight();
+
+                 $.fn.hilight.format = function(txt){
+				     return "<strong>" + txt + "</strong>";
+				 };
+				 $(".hilight").hilight();
+
+                 /* message插件 */
+				// $.message.alert("提示", 'hello');
+
+				// $.message.confirm('aa','hello',function(flag){
+				 //    if(flag){
+				//	      alert("确定");
+				//	  }
+				// });
+
+				/* dialog插件 */
+				var dom = "<div><label>姓名：</label><input type='text' /></div>"+
+				          "<div><label>电话: </label><input type='text' /></div>"+
+						  "<div class='btns'><a class='btn submit' href='javascript:void(0);'>确定</a><a class='btn cancel' href='javascript:void(0);'>取消</a></div>";
+				$(".dialog").append(dom).dialog({title: '添加', width: 500});
+                $(".dialog").on("click", ".submit", function(){
+				     alert("aa");
+					 $(".dialog").dialog("close");
+				});
+				$(".dialog").on("click", ".cancel", function(){
+				     alert("bb");
+					 $(".dialog").dialog("close");
+				});
+
+				/* myPlugin */
+				$(".beaufity").myPlugin({'textDecoration':"underline"}).css({"color":"green"});
+		   </script>
+	  </body>  
+</html>
